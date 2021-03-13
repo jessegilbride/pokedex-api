@@ -1,5 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
+const helmet = require('helmet');
 require('dotenv').config();
 
 const app = express();
@@ -11,6 +13,9 @@ const POKEDEX = require('./pokedex.json')
 // middleware
 // ----------------------------------------
 app.use(morgan('dev'));
+app.use(cors());
+app.use(helmet());
+// app.use(helmet.hidePoweredBy());
 app.use(validateBearerToken);
 
 // ----------------------------------------

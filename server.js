@@ -12,7 +12,8 @@ const POKEDEX = require('./pokedex.json')
 // ----------------------------------------
 // middleware
 // ----------------------------------------
-app.use(morgan('dev'));
+const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
+app.use(morgan(morganSetting));
 app.use(cors());
 app.use(helmet());
 app.use(validateBearerToken);

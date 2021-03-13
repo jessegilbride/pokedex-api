@@ -15,7 +15,6 @@ const POKEDEX = require('./pokedex.json')
 app.use(morgan('dev'));
 app.use(cors());
 app.use(helmet());
-// app.use(helmet.hidePoweredBy());
 app.use(validateBearerToken);
 
 // ----------------------------------------

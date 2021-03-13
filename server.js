@@ -55,7 +55,6 @@ function handleGetPokemon(req, res) {
     })
   }
 
-  // console.log(response);
   res.json(response);
 }
 

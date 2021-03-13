@@ -5,7 +5,7 @@ const helmet = require('helmet');
 require('dotenv').config();
 
 const app = express();
-const PORT = 8000;
+const PORT = process.env.PORT || 8000;
 const validTypes = [`Bug`, `Dark`, `Dragon`, `Electric`, `Fairy`, `Fighting`, `Fire`, `Flying`, `Ghost`, `Grass`, `Ground`, `Ice`, `Normal`, `Poison`, `Psychic`, `Rock`, `Steel`, `Water`];
 const POKEDEX = require('./pokedex.json')
 

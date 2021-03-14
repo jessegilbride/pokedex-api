@@ -12,11 +12,6 @@ const POKEDEX = require('./pokedex.json')
 // ----------------------------------------
 // middleware
 // ----------------------------------------
-const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
-app.use(morgan(morganSetting));
-app.use(cors());
-app.use(helmet());
-app.use(validateBearerToken);
 app.use((error, req, res, next) => {
   let response;
   if (process.env.NODE_ENV === 'production') {
@@ -26,6 +21,11 @@ app.use((error, req, res, next) => {
   }
   res.status(500).json(response)
 })
+const morganSetting = process.env.NODE_ENV === 'production' ? 'tiny' : 'common';
+app.use(morgan(morganSetting));
+app.use(cors());
+app.use(helmet());
+app.use(validateBearerToken);
 
 // ----------------------------------------
 // routes
